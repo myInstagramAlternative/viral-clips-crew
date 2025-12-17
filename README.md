@@ -59,6 +59,36 @@ All required Python libraries are listed in `pyproject.toml`.
    echo -e "OPENAI_API_KEY=<your-api-key>\nGEMINI_API_KEY=<your-api-key>" > .env
     ```
 
+## Docker Installation (Alternative)
+
+If you prefer using Docker, you can run this project in a containerized environment:
+
+1. Clone this repository to your local machine:
+
+    ```shell
+    git clone https://github.com/alexfazio/viral-clips-crew.git
+    cd viral-clips-crew
+    ```
+
+2. Create a `.env` file with your API keys:
+
+    ```shell
+    cp .env.example .env
+    # Edit .env and add your OPENAI_API_KEY and GEMINI_API_KEY
+    ```
+
+3. Build and run using Docker Compose:
+
+    ```shell
+    docker compose up --build
+    ```
+
+This will automatically build the Docker image and start the application. The input/output directories are mounted as volumes, so you can:
+- Place your video files in the `input_files` directory
+- Access processed videos in the `subtitler_output` directory
+
+The application runs interactively, so you can respond to prompts in the terminal.
+
 ## Usage
 
 After setting up, drag your desired clip into the `input_files` directory. 
