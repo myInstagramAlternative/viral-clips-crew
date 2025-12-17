@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  viral-clips-crew:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: viral-clips-crew
+    stdin_open: true  # Keep STDIN open for interactive input
+    tty: true  # Allocate a pseudo-TTY for interactive sessions
+    env_file:
+      - .env
+    volumes:
+      # Mount directories for persistent data
+      - ./input_files:/app/input_files
+      - ./crew_output:/app/crew_output
+      - ./whisper_output:/app/whisper_output
+      - ./clipper_output:/app/clipper_output
+      - ./subtitler_output:/app/subtitler_output
+    working_dir: /app
